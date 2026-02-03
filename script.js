@@ -8,3 +8,11 @@ function buttonFunc(num){
         messageSpace.innerHTML = document.getElementById("input").value
     }
 }
+
+function firebaseWrite(){
+    //document.getElementById(fbInput).value
+}
+
+function firebaseRead(){
+    
+}
