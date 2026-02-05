@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 
+<script type="module" src="fb_main.mjs"></script>
+<!--<script type="module" src="script.mjs"></script>-->
+
 <head>
     <title>JavaScript and Firebase refresher</title>
 </head>
@@ -14,9 +17,9 @@
     <h2>JavaScript</h2>
     <ul>
         <li>Connect the JavaScript file - this page will tell you when it is done</li>
-        <li><button id="button1" onclick=buttonFunc(1)>Add a button - Make it change the heading "You pressed the button!" </button></li>
+        <li><button id="button1" onclick=jsButtonFunc(1)>Add a button - Make it change the heading "You pressed the button!" </button></li>
         <li><input id="input" placeholder="Add a text input"></input></li>
-        <li><button id="button2" onclick=buttonFunc(2)>The button puts the text in the heading</button></li>
+        <li><button id="button2" onclick=jsButtonFunc(2)>The button puts the text in the heading</button></li>
     </ul>
     <h4>Firebase basics</h4>
 
@@ -43,6 +46,5 @@
         By the end of the week you will have Firebase going.</p>
 </body>
 
-<script src="script.js"></script>
-
+<script type="module" src="script.mjs"></script>
 </html>
