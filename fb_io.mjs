@@ -11,8 +11,8 @@ export {
     fb_initialize,
     FB_DB,
     //fb_authenticate,
-    fb_write
-    //fb_read,
+    fb_write,
+    fb_read
     //fb_readSorted,
     //fb_onAuthStateChanged,
 }
@@ -35,11 +35,30 @@ function fb_initialize() {
 }
 
 async function fb_write(input,path){
-    console.log("fb_write(",input, ':', path,")");
-    const dbReference = ref(FB_GAMEDB,path);
+    console.log('fb_write(',input, ':', path,')');
+    const dbReference = ref(FB_DB,path);
     try{
         set(dbReference, input)
         console.log("✅ Successful write")
+    }
+    catch(error){
+        console.log(error)
+    };
+}
+
+async function fb_read(path){
+    console.log('fb_read(' + path + ')');
+    const dbReference= ref(FB_DB, path);
+    try{
+        const snapshot = await get(dbReference)
+        var fb_data = snapshot.val();
+        if (fb_data != null) {
+            console.log("✅ Successful read")
+            return(fb_data)
+            
+        } else {
+            console.log("✅ No record found")
+        }
     }
     catch(error){
         console.log(error)
