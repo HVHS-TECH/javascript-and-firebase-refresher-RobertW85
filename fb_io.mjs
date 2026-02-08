@@ -1,4 +1,10 @@
 let FB_DB;
+let userDetails = {
+    displayName:'n/a',
+    email:'n/a',
+    photoURL:'n/a',
+    uid:'n/a'
+}
 
 import { initializeApp }
     from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -9,10 +15,10 @@ import {  getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, sign
 
 export { 
     fb_initialize,
-    FB_DB,
-    //fb_authenticate,
     fb_write,
-    fb_read
+    fb_read,
+    fb_authenticate,
+    userDetails
     //fb_readSorted,
     //fb_onAuthStateChanged,
 }
@@ -54,6 +60,7 @@ async function fb_read(path){
         var fb_data = snapshot.val();
         if (fb_data != null) {
             console.log("✅ Successful read")
+            console.log(fb_data)
             return(fb_data)
             
         } else {
@@ -63,4 +70,22 @@ async function fb_read(path){
     catch(error){
         console.log(error)
     };
+}
+
+function fb_authenticate(){
+    const AUTH = getAuth();
+    const PROVIDER = new GoogleAuthProvider();
+    PROVIDER.setCustomParameters({
+        prompt: 'select_account'
+    });
+    signInWithPopup(AUTH, PROVIDER).then((result) => {
+        userDetails.displayName = result.user.displayName
+        userDetails.email = result.user.email
+        userDetails.photoURL = result.user.photoURL
+        userDetails.uid = result.user.uid
+        console.log("Authentication successful")
+    })
+    .catch((error) => {
+        console.log(error)
+    });
 }

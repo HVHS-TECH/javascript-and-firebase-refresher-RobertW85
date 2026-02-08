@@ -21,19 +21,20 @@
         <li><input id="input" placeholder="Add a text input"></input></li>
         <li><button id="inputButton" onclick=jsInputButton()>The button puts the text in the heading</button></li>
     </ul>
-    <h4>Firebase basics</h4>
-
+    <!--<h4>Firebase basics</h4>
     <ul>
         <li>Create a new Firebase or re-use yours from last year</li>
         <li>Remember how to connect up the 'authorised domains'</li>
-        <li><button id="fbWriteButton" onclick=fbWriteButton()>Add a button</button><input id="fbInput" placeholder="Make it save the text to Firebase"></input></li>
-        <li><button id="fbReadButton" onclick=fbReadButton()>Add another button - Make it read the message from Firebase and write it to the heading of this page</button></li>
+        <li><button id="fbWriteButton" onclick=fbWriteButton() disabled>Add a button</button><input id="fbInput" placeholder="Make it save the text to Firebase" disabled></input></li>
+        <li><button id="fbReadButton" onclick=fbReadButton() disabled>Add another button - Make it read the message from Firebase and write it to the heading of this page</button></li>
     </ul>
+    <-->
+
     <h4>Firebase logins</h4>
     <ul>
-        <li>Use Google Authentication</li>
-        <li>Change what the first button does. Now it saves the text and the user who entered it</li>
-        <li>Change what the second button does. Now it displays all the messages and who added them</li>
+        <li><button id="fbAuth" onclick=fbAuthButton()>Use Google Authentication</button></li>
+        <li><button id="fbUserWrite" onclick=fbUserWriteButton()>Change what the first button does. Now it saves the text and the user who entered it</button> <input id="fbUserInput" placeholder="Enter Text Once Logged in"></input> </li>
+        <li><button id="fbReadAll" onclick=fbReadAllButton()>Change what the second button does. Now it displays all the messages and who added them</button></li>
     </ul>
     <h4>Extension</h4>
     <ul>
