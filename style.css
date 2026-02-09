@@ -1,0 +1,9 @@
+button {
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid black;
+}

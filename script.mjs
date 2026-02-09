@@ -1,9 +1,9 @@
-var messageSpace = document.getElementById("welcomeMessage");
-messageSpace.innerHTML = "You've connected to the JavaScript!";
+//var messageSpace = document.getElementById("welcomeMessage");
+//messageSpace.innerHTML = "You've connected to the JavaScript!";
+console.log("You've connected to the JavaScript!");
 
-//import { ref, get}
-//    from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import {fb_write, fb_read, fb_initialize, fb_authenticate, userDetails}//fb_initialize, FB_DB, fb_readSorted, fb_read, fb_write, fb_onAuthStateChanged} 
+
+import {fb_write, fb_read, fb_initialize, fb_authenticate, userDetails}
     from "/fb_io.mjs";
 
 window.pressButton = pressButton;
@@ -45,5 +45,18 @@ function fbUserWriteButton(){
 }
 
 function fbReadAllButton(){
-    fb_read("/")
+    fb_read("/").then(messages =>{
+        messages = Object.entries(messages)
+        const table = document.createElement("table");
+        for (let [key, value] of messages){
+            const row = table.insertRow();
+            const keyCell = row.insertCell();
+            const valueCell = row.insertCell();
+            keyCell.innerHTML = key;
+            valueCell.innerHTML = value;
+            keyCell.style.border = "1px solid black";
+            valueCell.style.border = "1px solid black";
+        }
+        document.body.appendChild(table);
+    })
 }
