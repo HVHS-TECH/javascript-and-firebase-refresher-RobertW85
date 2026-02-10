@@ -1,9 +1,27 @@
 button {
   border: none;
   cursor: pointer;
+  font-size: 70%;
 }
 
 input {
   border: none;
   border-bottom: 1px solid black;
+  font-size: 70%;
+}
+
+body{
+  animation: fadeIn 1000ms forwards;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-size: 200%;
+}
+
+@keyframes fadeIn {
+  from{
+    transform: translateX(-500%);
+  }
+  to{
+    
+  }
 }
